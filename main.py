@@ -3,6 +3,37 @@ from tkinter import *
 from random import random
 
 
+global l
+
+l = {"How much is a baker's dozen?":13,\
+            "Vagh is Klingon for which number?":5,\
+            "How many yards are there in a chain?":22,\
+            "Charles Atlas marketed his fitness program for the 'how many' pound weakling?":97, \
+            "If an internet user follows a broken or dead link, they will typically find an error page with which number error message?":404, \
+            "The Arctic Monkeys wrote a song about which number?":505,\
+            "In inches, how high is a table tennis net?":6 }
+
+
+def generateGkQuestion():
+    r = random()
+    answer_list = [
+            "How much is a baker's dozen?", #13
+            "Vagh is Klingon for which number?" #5
+            "How many yards are there in a chain?" #22
+            "Charles Atlas marketed his fitness program for the 'how many' pound weakling?" #97
+            "If an internet user follows a broken or dead link, they will typically find an error page with which number error message?" #404
+            "The Arctic Monkeys wrote a song about which number?" #505
+            "In inches, how high is a table tennis net?" #6
+    ]
+    amount_of_questions = len(answer_list)-1
+    r = ceil(r*amount_of_questions)
+    return answer_list[r]
+
+
+def generateGkAnswer(s):
+    global l
+    return l[s]
+
 def generateQuestion():
     r = random()
     x = ceil(r * 10)
@@ -25,7 +56,7 @@ def generateAnswer(s):
     elif op == '*':
         return x * y
     elif op == '/':
-        return x / y
+        return "{:.2f}".format(x/y)
     else:
         return x + y
 
